@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Please, Sign In</string>
+    <string name="welcome_back_title">Welcome back</string>
+    <string name="enter_email_hint">Enter your email</string>
+    <string name="welcome_back_description">sign in to access your account</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_me_checkbox">Remember me</string>
+    <string name="forgot_password_link">Forgot password?</string>
+    <string name="next_button"><![CDATA[Next >]]></string>
+    <string name="new_member">New Member?</string>
+    <string name="register_now_link">Register now</string>
+    <string name="register_title">Get Started</string>
+    <string name="register_description">by creating a free account</string>
+    <string name="tos_compliance">By checking the box, you agree to our Terms and Conditions</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="log_in_link">Log in</string>
+</resources>
