@@ -24,8 +24,8 @@ class RegisterActivity : AppCompatActivity() {
         callToLoginLabel.setOnClickListener {
             Log.d("Onboarding", "Login label pressed")
 
-            val goToRegisterIntent = Intent(this, LoginActivity::class.java)
-            startActivity(goToRegisterIntent)
+            val goToLoginIntent = Intent(this, LoginActivity::class.java)
+            startActivity(goToLoginIntent)
         }
     }
 }
