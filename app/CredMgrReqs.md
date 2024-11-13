@@ -6,10 +6,11 @@ Email:
     + Success - email is in correct format
 
 Password:
-    Exception - password is empty
-    Success - password is not empty and complies to the guidelines
+    + Exception - password is empty
+    + Success - password is not empty
 
 Login:
+    // Using fixed credentials
     Exception - Incorrect credentials
     Exception - Connection timeout
     Success - Successful login
