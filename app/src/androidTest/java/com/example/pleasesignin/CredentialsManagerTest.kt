@@ -8,30 +8,63 @@ class CredentialsManagerTest {
 //    fun 'Given empty e-mail, then return false'(){
     fun falseOnEmptyEmail() {
         val credentialsManager = CredentialsManager()
-        assertEquals(false, credentialsManager.isEmailValid(""))
+        val email = ""
+
+        val result = credentialsManager.isEmailValid("")
+        assertFalse(result)
     }
 
     @Test
     fun falseOnIncorrectInput() {
         val credentialsManager = CredentialsManager()
-        assertEquals(false, credentialsManager.isEmailValid("тименінедаєш"))
+        val email = "тименінедаєш"
+
+        val result = credentialsManager.isEmailValid(email)
+        assertFalse(result)
     }
 
     @Test
     fun falseOnIncompleteEmail_withoutAt() {
         val credentialsManager = CredentialsManager()
-        assertEquals(false, credentialsManager.isEmailValid("wideprismmusen.pro"))
+        val email = "wideprismmusen.pro"
+
+        val result = credentialsManager.isEmailValid(email)
+        assertFalse(result)
     }
 
     @Test
     fun falseOnIncompleteEmail_withoutDot() {
         val credentialsManager = CredentialsManager()
-        assertEquals(false, credentialsManager.isEmailValid("wideprism@musenpro"))
+        val email = "wideprism@musenpro"
+
+        val result = credentialsManager.isEmailValid(email)
+        assertFalse(result)
     }
 
     @Test
     fun trueOnProperEmail() {
         val credentialsManager = CredentialsManager()
-        assertEquals(true, credentialsManager.isEmailValid("wideprism@musen.pro"))
+        val email = "wideprism@musen.pro"
+
+        val result = credentialsManager.isEmailValid(email)
+        assertTrue(result)
+    }
+
+    @Test
+    fun falseOnEmptyPassword() {
+        val credentialsManager = CredentialsManager()
+        val password = ""
+
+        val result = credentialsManager.isPasswordValid(password)
+        assertFalse(result)
+    }
+
+    @Test
+    fun trueOnNonEmptyPassword() {
+        val credentialsManager = CredentialsManager()
+        val password = "123456"
+
+        val result = credentialsManager.isPasswordValid(password)
+        assertTrue(result)
     }
 }
