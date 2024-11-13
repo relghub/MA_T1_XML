@@ -1,8 +1,9 @@
 Sucessful login - ?
 
 Email:
-    Exception - email is empty or in wrong format
-    Success - email is in correct format
+    + Exception - email is empty
+    + Exception - email is in wrong format 
+    + Success - email is in correct format
 
 Password:
     Exception - password is empty
