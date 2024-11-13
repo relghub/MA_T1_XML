@@ -10,7 +10,7 @@ class CredentialsManagerTest {
         val credentialsManager = CredentialsManager()
         val email = ""
 
-        val result = credentialsManager.isEmailValid("")
+        val result = credentialsManager.isEmailValid(email)
         assertFalse(result)
     }
 
@@ -65,6 +65,26 @@ class CredentialsManagerTest {
         val password = "123456"
 
         val result = credentialsManager.isPasswordValid(password)
+        assertTrue(result)
+    }
+
+    @Test
+    fun falseOnIncorrectCredentials() {
+        val credentialsManager = CredentialsManager()
+        val email = "Not a user"
+        val password = "Not a password"
+
+        val result = credentialsManager.login(email, password)
+        assertFalse(result)
+    }
+
+    @Test
+    fun trueOnFixedCredentials() {
+        val credentialsManager = CredentialsManager()
+        val email = "test"
+        val password = "1234"
+
+        val result = credentialsManager.login(email, password)
         assertTrue(result)
     }
 }
