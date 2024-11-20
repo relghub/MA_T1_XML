@@ -63,6 +63,7 @@
         app:layout_constraintVertical_bias="0.432">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_email_field_Text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="60dp"
@@ -86,6 +87,7 @@
         app:layout_constraintVertical_bias="0.029">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_password_field_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
