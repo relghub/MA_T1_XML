@@ -14,6 +14,30 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlin.toString
 
 class LoginActivity : AppCompatActivity() {
+
+    private val inputEmail: TextInputLayout
+        get() = findViewById(R.id.register_email_field)
+
+    private val inputPassword: TextInputLayout
+        get() = findViewById(R.id.register_password_field)
+
+    private val nextButton: Button
+        get() = findViewById(R.id.button)
+
+    private val inputEmailText: TextInputEditText
+        get() = findViewById(R.id.register_email_field_Text)
+
+    private val inputPasswordText: TextInputEditText
+        get() = findViewById(R.id.register_password_field_Text)
+
+    private val isEmailValid: Boolean
+        get() = CredentialsManager().isEmailValid(inputEmailText.text.toString())
+
+    private val isPasswordValid: Boolean
+        get() = CredentialsManager().isPasswordValid(inputPasswordText.text.toString())
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,19 +50,10 @@ class LoginActivity : AppCompatActivity() {
 
         val callToRegisterLabel = findViewById<TextView>(R.id.login_to_register)
 
-        val inputEmail = findViewById<TextInputLayout>(R.id.register_email_field)
-        val inputPassword = findViewById<TextInputLayout>(R.id.register_password_field)
 
-        val inputEmailText = findViewById<TextInputEditText>(R.id.register_email_field_Text)
-        val inputPasswordText = findViewById<TextInputEditText>(R.id.register_password_field_Text)
-
-        val nextButton = findViewById<Button>(R.id.button)
         nextButton.setOnClickListener {
             val email = inputEmailText.text.toString()
             val password = inputPasswordText.text.toString()
-
-            val isEmailValid = CredentialsManager().isEmailValid(email)
-            val isPasswordValid = CredentialsManager().isPasswordValid(password)
 
             if (!isEmailValid) {
                 inputEmail.isErrorEnabled = true
