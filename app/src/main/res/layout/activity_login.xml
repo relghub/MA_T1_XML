@@ -51,7 +51,7 @@
         style = "@style/TextInputOnboarding"
         android:id="@+id/register_email_field"
         android:layout_width="300dp"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:hint="@string/enter_email_hint"
         android:inputType="textEmailAddress"
         android:singleLine="true"
@@ -63,6 +63,7 @@
         app:layout_constraintVertical_bias="0.432">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_email_field_Text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="60dp"
@@ -75,7 +76,7 @@
         style = "@style/TextInputOnboarding"
         android:id="@+id/register_password_field"
         android:layout_width="300dp"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,6 +87,7 @@
         app:layout_constraintVertical_bias="0.029">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_password_field_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
