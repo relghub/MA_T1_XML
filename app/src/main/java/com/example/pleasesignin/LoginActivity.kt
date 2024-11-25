@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
     private val inputEmail: TextInputLayout
         get() = findViewById(R.id.register_email_field)
 
-    private val inputPassword: TextInputLayout
+    private val inputPasswordLayout: TextInputLayout
         get() = findViewById(R.id.register_password_field)
 
     private val nextButton: Button
@@ -52,10 +52,12 @@ class LoginActivity : AppCompatActivity() {
 
 
         nextButton.setOnClickListener {
+            var isValid = true
             val email = inputEmailText.text.toString()
             val password = inputPasswordText.text.toString()
 
             if (!isEmailValid) {
+                isValid = false
                 inputEmail.isErrorEnabled = true
                 inputEmail.error = "Email is invalid!"
             } else {
@@ -63,10 +65,21 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (!isPasswordValid) {
-                inputPassword.isErrorEnabled = true
-                inputPassword.error = "Password is invalid!"
+                isValid = false
+                inputPasswordLayout.isErrorEnabled = true
+                inputPasswordLayout.error = "Password is invalid!"
             } else {
-                inputPassword.isErrorEnabled = false
+                inputPasswordLayout.isErrorEnabled = false
+            }
+
+            if (isValid) {
+                if (email == "test@te.st" && password == "1234") {
+                    val mainActivityIntent = Intent(this, MainActivity::class.java)
+                    startActivity(mainActivityIntent)
+                } else {
+                    inputPasswordLayout.isErrorEnabled = true
+                    inputPasswordLayout.error = "Incorrect email or password!"
+                }
             }
 
 
