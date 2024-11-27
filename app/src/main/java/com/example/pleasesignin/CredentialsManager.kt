@@ -3,6 +3,9 @@ package com.example.pleasesignin
 import android.util.Patterns
 
 class CredentialsManager {
+
+    val credentialsMap = mutableMapOf(Pair("test", "1234"))
+
     fun isEmailValid(email: String): Boolean {
         val emailPattern = Patterns.EMAIL_ADDRESS.pattern()
         val regex = Regex(emailPattern)
@@ -15,6 +18,10 @@ class CredentialsManager {
     }
 
     fun login(email: String, password: String): Boolean {
-        return (email == "test" && password == "1234")
+        return credentialsMap[email]?.equals(password) == true
+    }
+
+    fun register(fullName: String, email: String, phoneNumber: String, password: String) {
+        credentialsMap.put(email, password);
     }
 }

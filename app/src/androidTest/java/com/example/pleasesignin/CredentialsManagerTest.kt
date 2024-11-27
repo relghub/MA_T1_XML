@@ -1,5 +1,6 @@
 package com.example.pleasesignin
 
+import android.os.Debug
 import org.junit.jupiter.api.Assertions.*
 import org.junit.Test
 
@@ -86,5 +87,16 @@ class CredentialsManagerTest {
 
         val result = credentialsManager.login(email, password)
         assertTrue(result)
+    }
+
+    @Test
+    fun givenProperCredentials_whenUserRegisters_thenCreateAccount() {
+        val credentialsManager = CredentialsManager()
+
+        credentialsManager.register("John", "another@te.st", "600 600 000", "12234")
+
+        val isLoginSuccess = credentialsManager.login("another@te.st", "12234")
+
+        assertTrue(isLoginSuccess)
     }
 }
