@@ -18,10 +18,15 @@ class CredentialsManager {
     }
 
     fun login(email: String, password: String): Boolean {
-        return credentialsMap[email]?.equals(password) == true
+        return credentialsMap[email.lowercase()]?.equals(password) == true
     }
 
-    fun register(fullName: String, email: String, phoneNumber: String, password: String) {
-        credentialsMap.put(email, password);
+    fun register(fullName: String, email: String, phoneNumber: String, password: String): String {
+        if(credentialsMap[email.lowercase()] != null){
+            return "Email is already taken";
+        }
+
+        credentialsMap.put(email.lowercase(), password);
+        return "Registered Successfully";
     }
 }

@@ -93,7 +93,7 @@ class CredentialsManagerTest {
     fun givenProperCredentials_whenUserRegisters_thenCreateAccount() {
         val credentialsManager = CredentialsManager()
 
-        credentialsManager.register("John", "another@te.st", "600 600 000", "12234")
+        credentialsManager.register("John", "ANOTHER@te.st", "600 600 000", "12234")
 
         val isLoginSuccess = credentialsManager.login("another@te.st", "12234")
 
