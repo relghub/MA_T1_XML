@@ -17,6 +17,17 @@ class CredentialsManager {
         return password.isNotEmpty()
     }
 
+    fun isFullNameValid(fullName: String): Boolean {
+        return fullName.isNotEmpty()
+    }
+
+    fun isPhoneNumberValid(phoneNumber: String): Boolean {
+        val phonePattern = Patterns.PHONE.pattern()
+        val regex = Regex(phonePattern)
+
+        return regex.matches(phoneNumber)
+    }
+
     fun login(email: String, password: String): Boolean {
         return credentialsMap[email.lowercase()]?.equals(password) == true
     }
