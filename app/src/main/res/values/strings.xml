@@ -14,4 +14,6 @@
     <string name="tos_compliance">By checking the box, you agree to our Terms and Conditions</string>
     <string name="already_a_member">Already a member?</string>
     <string name="log_in_link">Log in</string>
+    <string name="fragment_a_string">Fragment A</string>
+    <string name="fragment_b_string">Fragment B</string>
 </resources>
