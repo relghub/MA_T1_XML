@@ -19,12 +19,11 @@ class MainActivity : AppCompatActivity() {
         val switchButton = findViewById<Button>(R.id.switch_button)
 
         switchButton.setOnClickListener {
-            val currentFragment: Fragment
 
-            if (isFragmentA) {
-                currentFragment = FragmentB()
+            val currentFragment: Fragment = if (isFragmentA) {
+                FragmentB()
             } else {
-                currentFragment = FragmentA()
+                FragmentA()
             }
 
             supportFragmentManager.beginTransaction()
