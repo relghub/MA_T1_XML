@@ -20,25 +20,25 @@ class RegisterActivity : AppCompatActivity() {
         get() = findViewById(R.id.register_email_field)
 
     private val inputEmailText: TextInputEditText
-        get() = findViewById(R.id.register_email_field_text)
+        get() = findViewById(R.id.register_email_field)
 
     private val inputPasswordLayout: TextInputLayout
         get() = findViewById(R.id.register_password_field)
 
     private val inputPasswordText: TextInputEditText
-        get() = findViewById(R.id.register_password_field_text)
+        get() = findViewById(R.id.register_password_field)
 
     private val inputFullName: TextInputLayout
         get() = findViewById(R.id.register_full_name_field)
 
     private val inputFullNameText: TextInputEditText
-        get() = findViewById(R.id.register_full_name_field_text)
+        get() = findViewById(R.id.register_full_name_field)
 
     private val inputPhoneNumber: TextInputLayout
         get() = findViewById(R.id.register_phone_field)
 
     private val inputPhoneNumberText: TextInputEditText
-        get() = findViewById(R.id.register_phone_field_text)
+        get() = findViewById(R.id.register_phone_field)
 
     private val nextButton: Button
         get() = findViewById(R.id.button)
@@ -109,7 +109,7 @@ class RegisterActivity : AppCompatActivity() {
                 inputFullName.isErrorEnabled = false
             }
 
-            if(!checkBox.isChecked()){
+            if(!checkBox.isChecked){
                 isValid = false
                 Toast.makeText(this, "Please approve the terms and conditions.", Toast.LENGTH_SHORT).show()
             }
