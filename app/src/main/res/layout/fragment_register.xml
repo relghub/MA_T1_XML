@@ -51,10 +51,10 @@
         android:inputType="textEmailAddress"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/register_full_name_field"
+        app:layout_constraintEnd_toEndOf="@+id/register_full_name_layout"
         app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="@+id/register_full_name_field"
-        app:layout_constraintTop_toBottomOf="@+id/register_full_name_field"
+        app:layout_constraintStart_toStartOf="@+id/register_full_name_layout"
+        app:layout_constraintTop_toBottomOf="@+id/register_full_name_layout"
         app:layout_constraintVertical_bias="0.050000012">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -67,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_password_field"
+        android:id="@+id/register_password_layout"
         style="@style/TextInputOnboarding"
         android:layout_width="300dp"
         android:layout_height="48dp"
@@ -75,13 +75,14 @@
         android:hint="Strong Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/register_phone_field"
+        app:layout_constraintEnd_toEndOf="@+id/register_phone_layout"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="@+id/register_phone_field"
-        app:layout_constraintTop_toBottomOf="@+id/register_phone_field"
+        app:layout_constraintStart_toStartOf="@+id/register_phone_layout"
+        app:layout_constraintTop_toBottomOf="@+id/register_phone_layout"
         app:layout_constraintVertical_bias="0.050000012">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_password_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
@@ -95,10 +96,10 @@
         android:layout_height="wrap_content"
         android:text="@string/tos_compliance"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/register_password_field"
+        app:layout_constraintEnd_toEndOf="@+id/register_password_layout"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/register_password_field"
-        app:layout_constraintTop_toBottomOf="@+id/register_password_field"
+        app:layout_constraintStart_toStartOf="@+id/register_password_layout"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_layout"
         app:layout_constraintVertical_bias="0.045" />
 
     <Button
@@ -108,9 +109,9 @@
         android:layout_marginBottom="52dp"
         android:text="@string/next_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/register_password_field"
+        app:layout_constraintEnd_toEndOf="@+id/register_password_layout"
         app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/register_password_field"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_layout"
         app:layout_constraintVertical_bias="0.927" />
 
     <TextView
@@ -142,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_phone_field"
+        android:id="@+id/register_phone_layout"
         style="@style/TextInputOnboarding"
         android:layout_width="300dp"
         android:layout_height="48dp"
@@ -157,6 +158,7 @@
         app:layout_constraintVertical_bias="0.050000012">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_phone_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
@@ -165,7 +167,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_full_name_field"
+        android:id="@+id/register_full_name_layout"
         style="@style/TextInputOnboarding"
         android:layout_width="300dp"
         android:layout_height="48dp"
@@ -180,6 +182,7 @@
         app:layout_constraintVertical_bias="0.102">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_full_name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
