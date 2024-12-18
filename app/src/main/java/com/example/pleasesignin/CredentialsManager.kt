@@ -1,15 +1,13 @@
 package com.example.pleasesignin
 
 import android.util.Patterns
+object CredentialsManager {
 
-class CredentialsManager {
-
-    val credentialsMap = mutableMapOf(Pair("test", "1234"))
+    private val credentialsMap = mutableMapOf(Pair("test@te.st", "1234"))
 
     fun isEmailValid(email: String): Boolean {
         val emailPattern = Patterns.EMAIL_ADDRESS.pattern()
         val regex = Regex(emailPattern)
-
         return regex.matches(email)
     }
 
@@ -22,9 +20,8 @@ class CredentialsManager {
     }
 
     fun isPhoneNumberValid(phoneNumber: String): Boolean {
-        val phonePattern = Patterns.PHONE.pattern()
+        val phonePattern = android.util.Patterns.PHONE.pattern()
         val regex = Regex(phonePattern)
-
         return regex.matches(phoneNumber)
     }
 
@@ -33,11 +30,10 @@ class CredentialsManager {
     }
 
     fun register(fullName: String, email: String, phoneNumber: String, password: String): String {
-        if(credentialsMap[email.lowercase()] != null){
-            return "Email is already taken";
+        if (credentialsMap[email.lowercase()] != null) {
+            return "Email is already taken"
         }
-
-        credentialsMap.put(email.lowercase(), password);
-        return "Registered Successfully";
+        credentialsMap[email.lowercase()] = password
+        return "Registered Successfully"
     }
 }
