@@ -54,6 +54,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // ViewModel and LiveData dependencies
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")  // Ensure this version is up-to-date
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")  // For StateFlow
+
     testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
