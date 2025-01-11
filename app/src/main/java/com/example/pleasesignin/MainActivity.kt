@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
 data class Recipe(
     val id: Int,
@@ -20,33 +22,48 @@ data class Recipe(
 
 class MainActivity : AppCompatActivity() {
 
+    private val recipeViewModel: RecipeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recipes = listOf(
-            Recipe(1, "Iskender", R.drawable.iskender),
-            Recipe(2, "Tavuklu Pilav", R.drawable.iskender),
-            Recipe(3, "Baklava", R.drawable.iskender)
-        )
-
         val recipesRecyclerView = findViewById<RecyclerView>(R.id.recipe_list)
+        val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.search_view)
+
         recipesRecyclerView.layoutManager = LinearLayoutManager(this)
-        recipesRecyclerView.adapter = RecipesAdapter(
-            recipes,
+
+        val recipesAdapter = RecipesAdapter(
+            emptyList(),
             onItemClicked = { recipe ->
-                Toast.makeText(this, "Clicked on ${recipe.title} (ID: ${recipe.id})", Toast.LENGTH_SHORT).show()
             },
             onButtonClicked = { recipe, action ->
-                Toast.makeText(this, "$action clicked for ${recipe.title} (ID: ${recipe.id})", Toast.LENGTH_SHORT).show()
             }
         )
+        recipesRecyclerView.adapter = recipesAdapter
+
+        lifecycleScope.launch {
+            recipeViewModel.recipesState.collect { recipes ->
+                recipesAdapter.updateRecipes(recipes)
+            }
+        }
+
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                recipeViewModel.setSearchQuery(newText.orEmpty())
+                return true
+            }
+        })
     }
 }
 
 
 class RecipesAdapter(
-    private val recipes: List<Recipe>,
+    private var recipes: List<Recipe>,
     private val onItemClicked: (Recipe) -> Unit,
     private val onButtonClicked: (Recipe, String) -> Unit
 ) : RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder>() {
@@ -73,5 +90,10 @@ class RecipesAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.bind(recipes[position])
+    }
+
+    fun updateRecipes(newRecipes: List<Recipe>) {
+        recipes = newRecipes
+        notifyDataSetChanged()
     }
 }
